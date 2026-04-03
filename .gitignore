@@ -1,0 +1,27 @@
+# Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+*.out
+build/
+dist/
+*.bin
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Dependencies and packages
+node_modules/
+package-lock.json
+*.lock
+
+# Temporary files
+*.tmp
+.temp/
