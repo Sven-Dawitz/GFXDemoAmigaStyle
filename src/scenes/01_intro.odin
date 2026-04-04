@@ -30,7 +30,7 @@ intro_update :: proc(state: ^DemoState) {
     if rl.IsKeyDown(.DOWN)  do cursor_y += speed
 
     // Exit Condition für die Scene
-    if rl.IsKeyPressed(.Q) || rl.IsKeyPressed(.SPACE) {
+    if rl.IsKeyPressed(.Q) || rl.IsKeyPressed(.SPACE) || rl.IsKeyPressed(.ESCAPE) {
         state.scene_switch_requested = true
     }
 }

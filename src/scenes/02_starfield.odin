@@ -21,7 +21,7 @@ starfield_init :: proc(state: ^DemoState) {
 starfield_update :: proc(state: ^DemoState) {
     time_passed += state.dt
 
-    if rl.IsKeyPressed(.Q) || rl.IsKeyPressed(.SPACE) {
+    if rl.IsKeyPressed(.Q) || rl.IsKeyPressed(.SPACE) || rl.IsKeyPressed(.ESCAPE) {
         state.scene_switch_requested = true
     }
 }

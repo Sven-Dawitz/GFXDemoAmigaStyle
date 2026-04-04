@@ -75,7 +75,8 @@ demoInit :: proc() {
     
     // Mauszeiger ausblenden fürs Demo-Feeling
     rl.HideCursor()
-}
+    // Deaktiviert das automatische Beenden durch ESC
+    rl.SetExitKey(.KEY_NULL)}
 
 demoExit :: proc() {
     rl.CloseWindow()
