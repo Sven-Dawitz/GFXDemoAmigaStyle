@@ -12,6 +12,7 @@ main :: proc() {
     all_scenes := [?]scenes.Scene{
         scenes.get_intro_scene(),
         scenes.get_starfield_scene(),
+        scenes.get_03_plasma_scene(),
     }
 
     state := scenes.DemoState{
@@ -35,12 +36,12 @@ main :: proc() {
         // Scene Management Logik
         if state.scene_switch_requested {
             all_scenes[state.current_scene_index].deinit(&state)
-            
+
             state.current_scene_index += 1
             if state.current_scene_index >= len(all_scenes) {
                 break // Demo beenden, wenn letzte Szene durch ist
             }
-            
+
             all_scenes[state.current_scene_index].init(&state)
             state.scene_switch_requested = false
         }
@@ -52,7 +53,7 @@ main :: proc() {
         rl.BeginDrawing()
         all_scenes[state.current_scene_index].draw(&state)
         rl.EndDrawing()
-        
+
     }
 
     // Letzte aktive Szene beim harten Beenden sauber abräumen
@@ -63,16 +64,16 @@ main :: proc() {
 
 demoInit :: proc() {
     rl.InitWindow(0, 0, "Odin Raylib Demo")
-    
+
     // Borderless Window Setup (Auflösung vom aktuellen Monitor abgreifen)
     monitor := rl.GetCurrentMonitor()
     w := rl.GetMonitorWidth(monitor)
     h := rl.GetMonitorHeight(monitor)
-    
+
     rl.SetWindowSize(w, h)
     rl.SetWindowState({.WINDOW_UNDECORATED})
     rl.SetTargetFPS(60)
-    
+
     // Mauszeiger ausblenden fürs Demo-Feeling
     rl.HideCursor()
     // Deaktiviert das automatische Beenden durch ESC
